@@ -19,6 +19,7 @@ export default async function getReservations(params: IParams) {
     if (authorId) {
       query.listing = { userId: authorId };
     }
+    // console.log(query);
 
     const reservations = await prisma.reservation.findMany({
       where: query,
@@ -40,6 +41,8 @@ export default async function getReservations(params: IParams) {
         createdAt: reservation.listing.createdAt.toISOString(),
       },
     }));
+    console.log("safeReservations",safeReservations);
+    
 
     return safeReservations;
   } catch (error: any) {
