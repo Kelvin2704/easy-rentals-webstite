@@ -42,7 +42,8 @@ const LoginModal = () => {
         })
         .then((callback)=>{
             setIsLoading(false);
-            if(callback?.ok) {
+            // console.log(callback)
+            if(callback?.ok) { //callback.ok = true
                 toast.success('Logged in');
                 router.refresh();
                 loginModal.onClose()
@@ -69,7 +70,7 @@ const LoginModal = () => {
     const footerContent = (
         <div className="flex flex-col gap-4 mt-3">
             <hr />
-            <Button outline label="Continue with Google" icon={FcGoogle} onClick={() => { }} />
+            <Button outline label="Continue with Google" icon={FcGoogle} onClick={() => signIn('google')} />
             <Button outline label="Continue with Github" icon={AiFillGithub} onClick={() => signIn('github')} />
             <div
                 className="

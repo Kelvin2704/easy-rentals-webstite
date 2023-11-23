@@ -20,7 +20,8 @@ const CategoryBox: React.FC<CategoryBoxProps> = ({
     const handleClick = useCallback(() => {
         let currentQuery = {}
         if (params) {
-            currentQuery = qs.parse(params.toString())
+            currentQuery = qs.parse(params.toString());
+            console.log(params)
         }
         const updatedQuery: any = {
             ...currentQuery,
